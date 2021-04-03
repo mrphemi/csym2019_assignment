@@ -1,3 +1,4 @@
+const apiKey = "908be0c26757d9306845f23e98bebb74";
 const englandCities = [
   "Bath",
   "Bristol",
@@ -39,6 +40,8 @@ clearDropdown();
 
 // Dynamically load related cities when a country is selected
 countriesDropdown.addEventListener("change", showCities);
+// Get city weather info. when a city is selected
+cityDropdown.addEventListener("change", getWeatherInfo);
 
 function showCities() {
   const country = countriesDropdown.value;
@@ -69,4 +72,13 @@ function loadCities(citiesArr) {
 
 function clearDropdown() {
   cityDropdown.innerHTML = "<option value='' selected>Select a City</option>";
+}
+
+function getWeatherInfo() {
+  const city = cityDropdown.value;
+  const apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  fetch(apiCall)
+    .then((res) => res.json())
+    .then((data) => console.log(data));
 }
