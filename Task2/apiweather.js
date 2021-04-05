@@ -76,7 +76,7 @@ function clearDropdown() {
 
 function getWeatherInfo() {
   const city = cityDropdown.value;
-  const apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  const apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   fetch(apiCall)
     .then((res) => res.json())
@@ -85,7 +85,8 @@ function getWeatherInfo() {
 
 function displayWeatherDetails(data) {
   console.log(data);
-  const temperature = document.getElementById("temp");
+  const fahrenheit = document.getElementById("temp_f");
+  const celcius = document.getElementById("temp");
   const humidity = document.getElementById("humidity");
   const windSpeed = document.getElementById("wind_speed");
   const windDirection = document.getElementById("wind_direction");
@@ -95,7 +96,8 @@ function displayWeatherDetails(data) {
 
   date.innerHTML = formatDate(new Date(Date.now()));
   city.innerHTML = data.name;
-  temperature.innerHTML = data.main.temp + "°c";
+  fahrenheit.innerHTML = data.main.temp + "F";
+  celcius.innerHTML = fahrenheitToCelcius(data.main.temp).toFixed(2) + "°c";
   humidity.innerHTML = data.main.humidity + "%";
   description.innerHTML = data.weather[0].description;
   windSpeed.innerHTML = data.wind.speed + "m/s";
@@ -113,4 +115,8 @@ function formatDate(date) {
   if (month.length === 1) month = "0" + month;
 
   return `${day}-${month}-${year}`;
+}
+
+function fahrenheitToCelcius(tempInF) {
+  return (tempInF - 32) * 0.5556;
 }
