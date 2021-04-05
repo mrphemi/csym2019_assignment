@@ -77,7 +77,6 @@ function clearDropdown() {
 function getWeatherInfo() {
   const city = cityDropdown.value;
   const apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-
   fetch(apiCall)
     .then((res) => res.json())
     .then((data) => displayWeatherDetails(data));
@@ -88,7 +87,8 @@ function displayWeatherDetails(data) {
   const fahrenheit = document.getElementById("temp_f");
   const celcius = document.getElementById("temp");
   const humidity = document.getElementById("humidity");
-  const windSpeed = document.getElementById("wind_speed");
+  const milesPerHour = document.getElementById("wind_speed");
+  const kmPerHour = document.getElementById("wind_speed_kmh");
   const windDirection = document.getElementById("wind_direction");
   const city = document.getElementById("city_name");
   const description = document.getElementById("description");
@@ -100,7 +100,8 @@ function displayWeatherDetails(data) {
   celcius.innerHTML = fahrenheitToCelcius(data.main.temp).toFixed(2) + "°c";
   humidity.innerHTML = data.main.humidity + "%";
   description.innerHTML = data.weather[0].description;
-  windSpeed.innerHTML = data.wind.speed + "m/s";
+  milesPerHour.innerHTML = data.wind.speed + "m/h";
+  kmPerHour.innerHTML = milesToKm(data.wind.speed).toFixed(2) + "k/h";
   windDirection.innerHTML = data.wind.deg + "°";
 }
 
@@ -119,4 +120,8 @@ function formatDate(date) {
 
 function fahrenheitToCelcius(tempInF) {
   return (tempInF - 32) * 0.5556;
+}
+
+function milesToKm(speedInMiles) {
+  return speedInMiles * 1.609344;
 }
