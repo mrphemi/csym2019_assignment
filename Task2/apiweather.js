@@ -80,5 +80,26 @@ function getWeatherInfo() {
 
   fetch(apiCall)
     .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then((data) => displayWeatherDetails(data));
+}
+
+function displayWeatherDetails(data) {
+  console.log(data);
+  const temperature = document.getElementById("temp");
+  const humidity = document.getElementById("humidity");
+  const windSpeed = document.getElementById("wind_speed");
+  const windDirection = document.getElementById("wind_direction");
+  const city = document.getElementById("city_name");
+  const description = document.getElementById("description");
+  const date = document.getElementById("date");
+
+  date.innerHTML = new Date(Date.now())
+    .toLocaleDateString()
+    .replace(/\//g, "-");
+  city.innerHTML = data.name;
+  temperature.innerHTML = data.main.temp + "°c";
+  humidity.innerHTML = data.main.humidity + "%";
+  description.innerHTML = data.weather[0].description;
+  windSpeed.innerHTML = data.wind.speed + "m/s";
+  windDirection.innerHTML = data.wind.deg + "°";
 }
