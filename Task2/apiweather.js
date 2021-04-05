@@ -93,13 +93,24 @@ function displayWeatherDetails(data) {
   const description = document.getElementById("description");
   const date = document.getElementById("date");
 
-  date.innerHTML = new Date(Date.now())
-    .toLocaleDateString()
-    .replace(/\//g, "-");
+  date.innerHTML = formatDate(new Date(Date.now()));
   city.innerHTML = data.name;
   temperature.innerHTML = data.main.temp + "°c";
   humidity.innerHTML = data.main.humidity + "%";
   description.innerHTML = data.weather[0].description;
   windSpeed.innerHTML = data.wind.speed + "m/s";
   windDirection.innerHTML = data.wind.deg + "°";
+}
+
+// change date to DD-MM-YY format
+function formatDate(date) {
+  let day = date.getDate().toString();
+  let month = (date.getMonth() + 1).toString();
+  const year = date.getYear().toString();
+
+  // append zero to single digits day and month
+  if (day.length === 1) day = "0" + day;
+  if (month.length === 1) month = "0" + month;
+
+  return `${day}-${month}-${year}`;
 }
