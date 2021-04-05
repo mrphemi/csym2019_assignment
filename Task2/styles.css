@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,700;1,400&family=Poppins:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  font-family: "PT Serif", serif;
+  color: #6b7280;
+}
+
+.background {
+  width: 30%;
+  background-image: url(../assets/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.background .dropdowns {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.background .dropdowns select {
+  display: block;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2rem;
+  height: 4rem;
+  padding: 0 1.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+}
+
+.background .dropdowns select:first-of-type {
+  margin-bottom: 2rem;
+}
+
+.background h1 {
+  font-size: 3.2rem;
+  text-transform: capitalize;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.result {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#date {
+  font-size: 1.4rem;
+}
+
+#description {
+  text-transform: capitalize;
+}
+
+.weather_details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.weather_details .detail {
+  background-color: #dff0f2;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.weather_details .detail p:first-of-type {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.weather_details .detail p:last-of-type {
+  font-size: 2.8rem;
+}
+
+#description,
+#city_name {
+  font-size: 3.2rem;
+}
