@@ -87,12 +87,12 @@ body {
 
 .weather_details .detail p:first-of-type {
   margin-bottom: 1rem;
+  text-transform: capitalize;
 }
 
 .weather_details .detail p:first-of-type,
 .weather_details .detail p:last-of-type {
   font-size: 1.2rem;
-  text-transform: capitalize;
 }
 
 .weather_details .detail p:nth-of-type(2) {
