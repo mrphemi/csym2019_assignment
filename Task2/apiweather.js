@@ -83,7 +83,6 @@ function getWeatherInfo() {
 }
 
 function displayWeatherDetails(data) {
-  console.log(data);
   const fahrenheit = document.getElementById("temp_f");
   const celcius = document.getElementById("temp");
   const humidity = document.getElementById("humidity");
@@ -94,6 +93,11 @@ function displayWeatherDetails(data) {
   const description = document.getElementById("description");
   const date = document.getElementById("date");
 
+  const severeSign = document.querySelector(".description div");
+  const detailsContainer = document.querySelector(".weather_details");
+
+  detailsContainer.classList.remove("hide");
+
   date.innerHTML = formatDate(new Date(Date.now()));
   city.innerHTML = data.name;
   fahrenheit.innerHTML = data.main.temp + "F";
@@ -103,6 +107,12 @@ function displayWeatherDetails(data) {
   milesPerHour.innerHTML = data.wind.speed + "m/h";
   kmPerHour.innerHTML = milesToKm(data.wind.speed).toFixed(2) + "k/h";
   windDirection.innerHTML = data.wind.deg + "°";
+
+  if (checkWeatherSeverity(fahrenheitToCelcius(data.main.temp))) {
+    severeSign.classList.remove("hide");
+  } else {
+    severeSign.classList.add("hide");
+  }
 }
 
 // change date to DD-MM-YY format
@@ -124,4 +134,10 @@ function fahrenheitToCelcius(tempInF) {
 
 function milesToKm(speedInMiles) {
   return speedInMiles * 1.609344;
+}
+
+function checkWeatherSeverity(temperature) {
+  if (temperature > 35) return true;
+  if (temperature < -5) return true;
+  return false;
 }
