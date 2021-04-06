@@ -13,6 +13,10 @@ body {
   color: #6b7280;
 }
 
+.hide {
+  display: none !important;
+}
+
 .background {
   width: 30%;
   background-image: url(../assets/background.jpg);
@@ -65,6 +69,27 @@ body {
 
 #date {
   font-size: 1.4rem;
+}
+
+.description {
+  margin-bottom: 2rem;
+}
+
+.description div {
+  display: flex;
+  justify-content: center;
+}
+
+.description div span {
+  color: red;
+  font-size: 1.4rem;
+  align-self: center;
+  margin-left: 1rem;
+}
+
+.description .feather {
+  stroke: red;
+  display: block;
 }
 
 #description {
