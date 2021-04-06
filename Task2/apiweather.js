@@ -83,6 +83,7 @@ function getWeatherInfo() {
 }
 
 function displayWeatherDetails(data) {
+  const icon = document.getElementById("icon");
   const fahrenheit = document.getElementById("temp_f");
   const celcius = document.getElementById("temp");
   const humidity = document.getElementById("humidity");
@@ -99,6 +100,10 @@ function displayWeatherDetails(data) {
   detailsContainer.classList.remove("hide");
 
   date.innerHTML = formatDate(new Date(Date.now()));
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`,
+  );
   city.innerHTML = data.name;
   fahrenheit.innerHTML = data.main.temp + "F";
   celcius.innerHTML = fahrenheitToCelcius(data.main.temp).toFixed(2) + "°c";
