@@ -111,7 +111,8 @@ function displayWeatherDetails(data) {
   description.innerHTML = data.weather[0].description;
   milesPerHour.innerHTML = data.wind.speed + "m/h";
   kmPerHour.innerHTML = milesToKm(data.wind.speed).toFixed(2) + "k/h";
-  windDirection.innerHTML = data.wind.deg + "°";
+  windDirection.innerHTML = s;
+  data.wind.deg + "°" + getWindDirectionText(data.wind.deg);
 
   if (checkWeatherSeverity(fahrenheitToCelcius(data.main.temp))) {
     severeSign.classList.remove("hide");
@@ -145,4 +146,38 @@ function checkWeatherSeverity(temperature) {
   if (temperature > 35) return true;
   if (temperature < -5) return true;
   return false;
+}
+
+function getWindDirectionText(windDirection) {
+  if (windDirection === 0 || windDirection === 360) {
+    return "N";
+  }
+
+  if (windDirection > 0 && windDirection < 90) {
+    return "NE";
+  }
+
+  if (windDirection === 90) {
+    return "E";
+  }
+
+  if (windDirection > 90 && windDirection < 180) {
+    return "SE";
+  }
+
+  if (windDirection === 180) {
+    return "S";
+  }
+
+  if (windDirection > 180 && windDirection < 270) {
+    return "SW";
+  }
+
+  if (windDirection === 270) {
+    return "W";
+  }
+
+  if (windDirection > 270 && windDirection < 360) {
+    return "NW";
+  }
 }
