@@ -65,6 +65,7 @@ function showCities() {
 
 function loadCities(citiesArr) {
   clearDropdown();
+  cityDropdown.removeAttribute("disabled");
   citiesArr.forEach((city) => {
     cityDropdown.innerHTML += `<option>${city}</option>`;
   });
@@ -111,8 +112,8 @@ function displayWeatherDetails(data) {
   description.innerHTML = data.weather[0].description;
   milesPerHour.innerHTML = data.wind.speed + "m/h";
   kmPerHour.innerHTML = milesToKm(data.wind.speed).toFixed(2) + "k/h";
-  windDirection.innerHTML = s;
-  data.wind.deg + "°" + getWindDirectionText(data.wind.deg);
+  windDirection.innerHTML =
+    data.wind.deg + "°" + getWindDirectionText(data.wind.deg);
 
   if (checkWeatherSeverity(fahrenheitToCelcius(data.main.temp))) {
     severeSign.classList.remove("hide");
