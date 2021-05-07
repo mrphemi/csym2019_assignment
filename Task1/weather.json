@@ -1,0 +1,58 @@
+[
+  {
+    "city_id": 1,
+    "city_name": "London",
+    "current_conditions": "cloud",
+    "temperature": {
+      "celcius": 13,
+      "fahrenheit": 55.4
+    },
+    "wind": {
+      "wind_speed": 9,
+      "wind_direction": 45,
+      "wind_chill_factor": 2.5
+    }
+  },
+  {
+    "city_id": 2,
+    "city_name": "Manchester",
+    "current_conditions": "sleet",
+    "temperature": {
+      "celcius": 12,
+      "fahrenheit": 53.6
+    },
+    "wind": {
+      "wind_speed": 11,
+      "wind_direction": 300,
+      "wind_chill_factor": 4.5
+    }
+  },
+  {
+    "city_id": 3,
+    "city_name": "Liverpool",
+    "current_conditions": "thunderstorm",
+    "temperature": {
+      "celcius": 9,
+      "fahrenheit": 48.2
+    },
+    "wind": {
+      "wind_speed": 17,
+      "wind_direction": 67,
+      "wind_chill_factor": 1.2
+    }
+  },
+  {
+    "city_id": 4,
+    "city_name": "Milton Keynes",
+    "current_conditions": "sun",
+    "temperature": {
+      "celcius": 15,
+      "fahrenheit": 59
+    },
+    "wind": {
+      "wind_speed": 5,
+      "wind_direction": 180,
+      "wind_chill_factor": 3.2
+    }
+  }
+]

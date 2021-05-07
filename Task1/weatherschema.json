@@ -1,0 +1,96 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/object1620402386.json",
+  "title": "Root",
+  "type": "array",
+  "default": [],
+  "items": {
+    "$id": "#root/items",
+    "title": "Items",
+    "type": "object",
+    "required": [
+      "city_id",
+      "city_name",
+      "current_conditions",
+      "temperature",
+      "wind"
+    ],
+    "properties": {
+      "city_id": {
+        "$id": "#root/items/city_id",
+        "title": "City_id",
+        "type": "integer",
+        "examples": [1],
+        "default": 0
+      },
+      "city_name": {
+        "$id": "#root/items/city_name",
+        "title": "City_name",
+        "type": "string",
+        "default": "",
+        "examples": ["London"],
+        "pattern": "^.*$"
+      },
+      "current_conditions": {
+        "$id": "#root/items/current_conditions",
+        "title": "Current_conditions",
+        "type": "string",
+        "default": "",
+        "examples": ["cloudy"],
+        "pattern": "^.*$"
+      },
+      "temperature": {
+        "$id": "#root/items/temperature",
+        "title": "Temperature",
+        "type": "object",
+        "required": ["celcius", "fahrenheit"],
+        "properties": {
+          "celcius": {
+            "$id": "#root/items/temperature/celcius",
+            "title": "Celcius",
+            "type": "integer",
+            "examples": [13],
+            "default": 0
+          },
+          "fahrenheit": {
+            "$id": "#root/items/temperature/fahrenheit",
+            "title": "Fahrenheit",
+            "type": "number",
+            "examples": [55.4],
+            "default": 0.0
+          }
+        }
+      },
+      "wind": {
+        "$id": "#root/items/wind",
+        "title": "Wind",
+        "type": "object",
+        "required": ["wind_speed", "wind_direction", "wind_chill_factor"],
+        "properties": {
+          "wind_speed": {
+            "$id": "#root/items/wind/wind_speed",
+            "title": "Wind_speed",
+            "type": "integer",
+            "examples": [9],
+            "default": 0
+          },
+          "wind_direction": {
+            "$id": "#root/items/wind/wind_direction",
+            "title": "Wind_direction",
+            "type": "integer",
+            "examples": [45],
+            "default": 0
+          },
+          "wind_chill_factor": {
+            "$id": "#root/items/wind/wind_chill_factor",
+            "title": "Wind_chill_factor",
+            "type": "number",
+            "examples": [2.5],
+            "default": 0.0
+          }
+        }
+      }
+    }
+  }
+}
