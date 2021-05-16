@@ -54,5 +54,19 @@
       "wind_direction": 180,
       "wind_chill_factor": 3.2
     }
+  },
+  {
+    "city_id": 5,
+    "city_name": "Dartford",
+    "current_conditions": "heavy rain",
+    "temperature": {
+      "celcius": 11,
+      "fahrenheit": 43
+    },
+    "wind": {
+      "wind_speed": 8,
+      "wind_direction": 125,
+      "wind_chill_factor": 4.6
+    }
   }
 ]
