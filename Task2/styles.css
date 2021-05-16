@@ -8,7 +8,6 @@
 }
 
 body {
-  display: flex;
   font-family: "PT Serif", serif;
   color: #6b7280;
 }
@@ -18,12 +17,10 @@ body {
 }
 
 .background {
-  width: 30%;
   background-image: url(../assets/background.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -31,8 +28,7 @@ body {
 }
 
 .background .dropdowns {
-  margin-top: auto;
-  margin-bottom: auto;
+  margin: 2rem 0;
 }
 
 .background .dropdowns select {
@@ -49,7 +45,7 @@ body {
 }
 
 .background .dropdowns select:first-of-type {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .background h1 {
@@ -60,7 +56,7 @@ body {
 }
 
 .result {
-  width: 70%;
+  padding: 4rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -132,4 +128,34 @@ body {
 #description,
 #city_name {
   font-size: 3.2rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .background .dropdowns select {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+  }
+
+  .background {
+    width: 30%;
+    height: 100vh;
+  }
+
+  .background .dropdowns select {
+    width: 80%;
+  }
+  .background .dropdowns {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .result {
+    padding: 0;
+    width: 70%;
+  }
 }
