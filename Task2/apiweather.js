@@ -36,8 +36,6 @@ const walesCities = ["Bangor", "Cardiff", "Newport", "Swansea"];
 const countriesDropdown = document.getElementById("countries");
 const cityDropdown = document.getElementById("cities");
 
-clearDropdown();
-
 // Dynamically load related cities when a country is selected
 countriesDropdown.addEventListener("change", showCities);
 // Get city weather info. when a city is selected
@@ -100,7 +98,7 @@ function displayWeatherDetails(data) {
 
   detailsContainer.classList.remove("hide");
 
-  date.innerHTML = formatDate(new Date(Date.now()));
+  date.innerHTML = formatDate(new Date());
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`,
@@ -126,7 +124,7 @@ function displayWeatherDetails(data) {
 function formatDate(date) {
   let day = date.getDate().toString();
   let month = (date.getMonth() + 1).toString();
-  const year = date.getYear().toString();
+  const year = date.getFullYear().toString();
 
   // append zero to single digits day and month
   if (day.length === 1) day = "0" + day;
