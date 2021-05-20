@@ -26,7 +26,7 @@ function getWeatherIcon(condition) {
     case "thunderstorm":
       return `${iconsDirectory}thunderstorm.png`;
     default:
-      return "Icon not available";
+      return "#";
   }
 }
 

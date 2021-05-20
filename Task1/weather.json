@@ -68,5 +68,19 @@
       "wind_direction": 125,
       "wind_chill_factor": 4.6
     }
+  },
+  {
+    "city_id": 6,
+    "city_name": "Bristol",
+    "current_conditions": "hail",
+    "temperature": {
+      "celcius": 6,
+      "fahrenheit": 34
+    },
+    "wind": {
+      "wind_speed": 5.5,
+      "wind_direction": 105,
+      "wind_chill_factor": 4.3
+    }
   }
 ]
