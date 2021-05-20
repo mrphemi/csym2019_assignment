@@ -32,7 +32,6 @@ function getWeatherIcon(condition) {
 
 // Populate table with data from weather.json
 function populateTable(data) {
-  console.log(data);
   const tableRow = $("<tr></tr>");
   const cityId = $(`<td>${data.city_id}</td>`);
   const cityName = $(`<td>${data.city_name}</td>`);
@@ -74,7 +73,8 @@ function getWeatherData() {
       alert("An error occured: " + xhr.status + " " + xhr.statusText);
     },
   });
-  setTimeout(getWeatherData, 10000);
+  const time = 10 * (60 * 1000); // Set delay time to 10 minutes.
+  setTimeout(getWeatherData, time); // Re-fetch data from weather.json every 10 minutes
 }
 
 $(document).ready(function () {
